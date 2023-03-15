@@ -9,16 +9,16 @@ export default function Searchbar() {
   const [searchTerm, setSearchTerm] = useState("");
   const [movies, setMovies] = useState([]);
 
-  useEffect(() => {
-    searchMovies("Batman");
-  }, []);
-
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
 
     setMovies(data.Search);
   };
+
+  useEffect(() => {
+    searchMovies("Batman");
+  }, []);
 
   return (
     <div>
@@ -37,8 +37,8 @@ export default function Searchbar() {
       </div>
       {movies?.length > 0 ? (
         <div className="container">
-          {movies.map((movie) => (
-            <MovieCard movie={movie} />
+          {movies.map((movie, index) => (
+            <MovieCard movie={movie} key={index} />
           ))}
         </div>
       ) : (
