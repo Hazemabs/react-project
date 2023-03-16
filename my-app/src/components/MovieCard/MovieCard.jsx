@@ -1,9 +1,6 @@
 import React from "react";
 import MovieDetails from "../MovieDetails/MovieDetails";
-export default function MovieCard({
- 
-  movie,
-}) {
+export default function MovieCard({ movie }) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -15,7 +12,11 @@ export default function MovieCard({
 
         <div>
           <img
-            src={movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/400"}
+            src={
+              movie.Poster !== "N/A"
+                ? movie.Poster
+                : "https://via.placeholder.com/400"
+            }
             alt={movie.Title}
           />
         </div>

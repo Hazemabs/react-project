@@ -1,6 +1,5 @@
 import React from "react";
 import Modal from "react-modal";
-
 export default function MovieDetails({
   movie,
   isOpen,
@@ -15,6 +14,7 @@ export default function MovieDetails({
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+     opacity: 90,
     },
   };
   function closeModal() {
@@ -22,7 +22,7 @@ export default function MovieDetails({
   }
 
   return (
-    <Modal
+    <Modal ariaHideApp={false}
       isOpen={isOpen}
       // onAfterOpen={afterOpenModal}
       onRequestClose={closeModal}
@@ -31,27 +31,27 @@ export default function MovieDetails({
     >
       <div className="movie-details">
         <img src={movie.Poster} alt={movie.Title} />
-        <div className="movie-details">
+        <div >
           <h2>{movie.Title}</h2>
-          <p>{movie.Description}</p>
+          <p>{movie.Type}</p>
           <div className="movie-info">
             <p>
               <strong>Year:</strong> {movie.Year}
             </p>
             <p>
-              <strong>Director:</strong> {movie.Director}
+              <strong>About:</strong> {movie.Plot}
             </p>
-            <p>
+            {/* <p>
                 {console.log(movie)}
               Rating:{" "}
               {movie.Ratings &&
                 movie.Ratings.map((Rating) => (
                   <p>
-                    {Rating.Source} : {Rating.Value}
+                    {Rating.Source} : {Rating.Value} 
                   </p>
                 ))}
-            </p>
-            <button onClick={closeModal}>close</button>
+            </p> */}
+            <button className="btnCloseDetails" onClick={closeModal}>close</button>
           </div>
         </div>
       </div>

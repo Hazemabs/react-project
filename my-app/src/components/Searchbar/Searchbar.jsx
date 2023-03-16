@@ -12,7 +12,7 @@ export default function Searchbar() {
   const searchMovies = async (title) => {
     const response = await fetch(`${API_URL}&s=${title}`);
     const data = await response.json();
-
+    console.log(data);
     setMovies(data.Search);
   };
 
